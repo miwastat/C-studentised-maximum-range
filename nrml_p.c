@@ -86,8 +86,8 @@ double nrml_p(double u, int upper)
       p = (u > 0.0) ?  0.5 - p : -0.5 + p;
     else if(u > 0.0 && upper != 1 || u < 0.0 && upper == 1)
         p = 1.0 - p;
-
-  } else {
+  }
+  else {
     // Shenton's approximation for small |u|.
     for( ; term > 0; term--, sw = -sw)
       p = term*uu / (2.0*term + 1.0 + sw*p);
