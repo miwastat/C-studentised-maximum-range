@@ -70,18 +70,17 @@ static double nrml_ip(double a, double b)
  */
 static double ulim(double r, int k)
 {
-  double ulim13, rmin, rmin10, a1, a2, a3, d1, d2, w, z;
+  double w=log((double)k), ulim13, rmin, rmin10, a1, a2, a3, d1, d2, z;
 
   // If k > 1000, use the value for k=1000.
   if(k > 1000) 
     k = 1000;
 
   // Approximate upper limit at r=13.
-  ulim13 = 1.403*sqrt(log((double)k) + 28.127);
+  ulim13 = 1.403*sqrt(w + 28.127);
 
   // Calculate approximate rmin(k).
   // Return 0.0 if r <= rmin(k).
-  w = log((double)k);
   rmin = exp(2.3641 - 4.669/w - 9.499/(w*w) - 13.293/(w*w*w));
   if(r <= rmin)
     return(0.0);
